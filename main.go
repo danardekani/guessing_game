@@ -10,7 +10,6 @@ import (
 
 func main() {
 	fmt.Println("Guess a number between 1 and 100")
-	fmt.Println("Please input your guess")
 
 	reader := bufio.NewReader(os.Stdin)
 	input, _ := reader.ReadString('\n')

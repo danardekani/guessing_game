@@ -13,8 +13,11 @@ import (
 func main() {
 	fmt.Println("Guess a number between 1 and 100")
 
+	createNumber := createRandomInteger(1, 100)
+	fmt.Println("The random number is ", createNumber)
+
 	reader := bufio.NewReader(os.Stdin)
-	input, _ := reader.ReadString('\n')
+	input, _ := reader.ReadString('\n')	
 	input = strings.TrimSuffix(input, "\n")
 
 	guess, err := strconv.Atoi(input)
@@ -29,5 +32,5 @@ func main() {
 
 func createRandomInteger(min, max int) int  {
 	rand.Seed(time.Now().Unix())
-	return rand.Intn(min - max) + min
+	return rand.Intn(max-min) + min
 }

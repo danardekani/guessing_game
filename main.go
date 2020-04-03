@@ -4,7 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"math/rand"
-	"os"	
+	"os"
 	"strconv"
 	"strings"
 	"time"
@@ -27,7 +27,7 @@ func main() {
 		input = strings.TrimSuffix(input, "\n")
 
 		guess, err := strconv.Atoi(input)
-		
+
 		if err != nil {
 			fmt.Println("Invalid input. Please enter an integer value")
 			return

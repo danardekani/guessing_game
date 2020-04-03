@@ -30,7 +30,7 @@ func main() {
 
 		if err != nil {
 			fmt.Println("Invalid input. Please enter an integer value")
-			return
+			continue
 		}
 		// if/else statements comparing user input vs machine output
 		fmt.Println("Your guess is", guess)

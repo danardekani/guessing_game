@@ -6,6 +6,8 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"math/rand"
+	"time"
 )
 
 func main() {
@@ -23,4 +25,9 @@ func main() {
 	}
 
 	fmt.Println("Your guess is", guess)
+}
+
+func createRandomInteger(min, max int) int  {
+	rand.Seed(time.Now().Unix())
+	return rand.Intn(min - max) + min
 }

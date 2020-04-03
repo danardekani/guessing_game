@@ -3,21 +3,22 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"os"
+	"math/rand"
+	"os"	
 	"strconv"
 	"strings"
-	"math/rand"
 	"time"
 )
 
 func main() {
 	fmt.Println("Guess a number between 1 and 100")
 
+	// return random number from createRandomInteger
 	createNumber := createRandomInteger(1, 100)
-	fmt.Println("The random number is ", createNumber)
 
+	// accept and read user input
 	reader := bufio.NewReader(os.Stdin)
-	input, _ := reader.ReadString('\n')	
+	input, _ := reader.ReadString('\n')
 	input = strings.TrimSuffix(input, "\n")
 
 	guess, err := strconv.Atoi(input)
@@ -26,11 +27,18 @@ func main() {
 		fmt.Println("Invalid input. Please enter an integer value")
 		return
 	}
-
+	// if/else statements comparing user input vs machine output
 	fmt.Println("Your guess is", guess)
+	if guess > createNumber {
+		fmt.Println("You're guess is too high. Try again.")
+	} else if guess < createNumber {
+		fmt.Println("Your guess is too low. Try again. ")
+	} else {
+		fmt.Println("That is correct! Good job!")
+	}
 }
 
-func createRandomInteger(min, max int) int  {
+func createRandomInteger(min, max int) int {
 	rand.Seed(time.Now().Unix())
 	return rand.Intn(max-min) + min
 }
